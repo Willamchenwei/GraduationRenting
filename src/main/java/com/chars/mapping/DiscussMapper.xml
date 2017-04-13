@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.chars.dao.IDiscussDao">
+	<insert id="insertDiscuss" parameterType="com.chars.model.Discuss">
+		insert into Discuss (id,
+		houseId, userId, discussType, describle, housePicture1, housePicture2, housePicture3)
+		values (#{id}, #{houseId}, #{userId}, #{discussType},
+		#{describle},
+		#{housePicture1}, #{housePicture2}, #{housePicture3})
+	</insert>
+	<delete id="deleteDiscuss" parameterType="int">
+		delete from Discuss where id
+		= #{id}
+	</delete>
+</mapper>

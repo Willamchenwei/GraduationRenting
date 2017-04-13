@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.chars.dao.IHouseDao">
+	<insert id="insertHouse" parameterType="com.chars.model.House">
+		insert into House (id,
+		userId, title, city, people, houseAddress, houseDescrible, housePrice,
+		housePicture1,
+		housePicture2, housePicture3,  mobile,  rentstate,  state,
+		area,  personality, internal,
+		traffic, surrounding,supportingFacilities )
+		values (#{id}, #{userId},
+		#{title}, #{city},
+		#{people},
+		#{houseAddress},
+		#{houseDescrible}, #{housePrice},
+		#{housePicture1}, #{housePicture2},
+		#{housePicture3}, #{mobile},
+		#{rentstate}, #{state},
+		#{area},
+		#{personality}, #{internal}, #{traffic},
+		#{surrounding},
+		#{supportingFacilities})
+	</insert>
+	<update id="updateHouse" parameterType="com.chars.model.House">
+		update House
+		<trim prefix="set" suffixOverrides=",">	
+			<if test="title!=null">title = #{title},</if>
+			<if test="city!=null">city = #{city},</if>
+			<if test="people!=null">people = #{people},</if>
+			<if test="houseAddress!=null">houseAddress = #{houseAddress},</if>
+			<if test="houseDescrible!=null">houseDescrible = #{houseDescrible},</if>
+			<if test="housePrice!=null">housePrice = #{housePrice},</if>
+			<if test="housePicture1!=null">housePicture1 = #{housePicture1},</if>
+			<if test="housePicture2!=null">housePicture2 = #{housePicture2},</if>
+			<if test="housePicture3!=null">housePicture3 = #{housePicture3},</if>
+			<if test="mobile!=null">mobile = #{mobile},</if>
+			<if test="rentstate!=null">rentstate = #{rentstate},</if>
+			<if test="state!=null">state = #{state},</if>
+			<if test="area!=null">area = #{area},</if>
+			<if test="personality!=null">personality = #{personality},</if>
+			<if test="internal!=null">internal = #{internal},</if>
+			<if test="traffic!=null">traffic = #{traffic},</if>
+			<if test="surrounding!=null">surrounding = #{surrounding},</if>
+			<if test="supportingFacilities!=null">supportingFacilities = #{supportingFacilities}</if>
+		</trim>
+		where id = #{id}
+	</update>
+
+</mapper>

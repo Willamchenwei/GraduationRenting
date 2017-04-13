@@ -12,6 +12,9 @@ public class User {
 	private String phone;
 	private String emil;
 	
+	public User () {
+		super(); 
+	}
 	public User(String userName, String password, String realName, String address, String picture, String sex,
 			String idCard, String phone, String emil) {
 		super();
@@ -34,7 +37,7 @@ public class User {
 	public String getUserName() {
 		return userName;
 	}
-	public void setUsername(String userName) {
+	public void setUserName(String userName) {
 		this.userName = userName;
 	}
 	public String getPassword() {
@@ -91,5 +94,7 @@ public class User {
 				+ ", address=" + address + ", picture=" + picture + ", sex=" + sex + ", idCard=" + idCard + ", phone="
 				+ phone + ", emil=" + emil + "]";
 	}
+	
+	
 	
 }

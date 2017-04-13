@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.chars.dao.IUserDao">
-	<select id="getUser" parameterType="String" resultType="com.chars.model.User">
-		SELECT *
-		FROM User WHERE USERNAME = #{username} AND PASSWORD = #{password}
+	<select id="getUser" parameterType="hashmap" resultType="com.chars.model.User">
+		select
+		id,
+		userName,
+		password,
+		realName,
+		address,
+		picture,
+		sex,
+		idCard,
+		phone,
+		emil
+		from User where userName = #{userName} and password = #{password}
 	</select>
 	<insert id="insertUser" parameterType="com.chars.model.User">
 		insert into User (id,
@@ -13,19 +23,25 @@
 		#{address},
 		#{picture}, #{sex}, #{idCard}, #{phone}, #{emil})
 	</insert>
-	<update id="updateUser" parameterType="com.chars.model.User" >
-		update User set
-		userName = #{userName},
-		password =#{password},
-		realName=#{realName},
-		address=#{address},
-		picture=#{picture},
-		sex=#{sex},
-		idCard=#{idCard},
-		emil = #{emil}
+	<update id="updateUser" parameterType="com.chars.model.User">
+		update User
+		<trim prefix="set" suffixOverrides=",">
+			<if test="userName!=null">userName = #{userName},</if>
+			<if test="password!=null">password = #{password},</if>
+			<if test="realName!=null">realName = #{realName},</if>
+			<if test="address!=null">address = #{address},</if>
+			<if test="picture!=null">picture = #{picture},</if>
+			<if test="sex!=null">sex = #{sex},</if>
+			<if test="idCard!=null">idCard = #{idCard},</if>
+			<if test="phone!=null">phone = #{phone},</if>
+			<if test="emil!=null">emil = #{emil}</if>
+		</trim>
 		where id = #{id}
 	</update>
+
 	<delete id="deleteUser" parameterType="int">
-		delete from User where id = #{id}
+		delete from User where id
+		= #{id}
 	</delete>
+
 </mapper>
