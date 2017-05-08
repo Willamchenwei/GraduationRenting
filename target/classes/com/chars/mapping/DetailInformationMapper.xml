@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.chars.dao.IDetailInformationDao">
+	<select id="getDetailInformation" parameterType="int"
+		resultType="com.chars.model.DetailInformation">
+		select
+		user.id as userId,
+		house.id as houseId,
+		user.userName
+		as userName,
+		user.realName as realName,
+		user.picture
+		as picture,
+		user.sex
+		as sex,
+		user.idCard as idCard,
+		user.emil as
+		emil,
+		house.title as title,
+		house.city as city,
+		house.people as
+		people,
+		house.houseAddress as
+		houseAddress,
+		house.houseDescrible as
+		houseDescrible,
+		house.housePrice as
+		housePrice,
+		house.housePicture1
+		as housePicture1,
+		house.housePicture2 as
+		housePicture2,
+		house.housePicture3 as housePicture3,
+		house.mobile as
+		mobile,
+		house.rentstate as rentstate,
+		house.state as state,
+		house.area as
+		area,
+		house.personality as personality,
+		house.internal as
+		internal,
+		house.traffic as traffic,
+		house.surrounding as
+		surrounding,
+		house.supportingFacilities as supportingFacilities
+	
+		from House house
+		left outer join User user on house.userId = user.id
+		
+		where house.id
+		= #{id} and state = "已发布" and rentstate = "未出租"
+	</select>
+	<select id="getDetailInformations" resultType="com.chars.model.DetailInformation">
+		select
+		user.id as userId,
+		house.id as houseId,
+		user.userName
+		as userName,
+		user.realName as realName,
+		user.picture
+		as picture,
+		user.sex
+		as sex,
+		user.idCard as idCard,
+		user.emil as
+		emil,
+		house.title as title,
+		house.city as city,
+		house.people as
+		people,
+		house.houseAddress as
+		houseAddress,
+		house.houseDescrible as
+		houseDescrible,
+		house.housePrice as
+		housePrice,
+		house.housePicture1
+		as housePicture1,
+		house.housePicture2 as
+		housePicture2,
+		house.housePicture3 as housePicture3,
+		house.mobile as
+		mobile,
+		house.rentstate as rentstate,
+		house.state as state,
+		house.area as
+		area,
+		house.personality as personality,
+		house.internal as
+		internal,
+		house.traffic as traffic,
+		house.surrounding as
+		surrounding,
+		house.supportingFacilities as supportingFacilities
+		from House house
+		left outer join User user on house.userId = user.id
+		
+		where state = "已发布" and rentstate = "未出租"
+	</select>
+		<select id="getManagerDetailInformation" parameterType="int"
+		resultType="com.chars.model.DetailInformation">
+		select
+		user.id as userId,
+		house.id as houseId,
+		user.userName
+		as userName,
+		user.realName as realName,
+		user.picture
+		as picture,
+		user.sex
+		as sex,
+		user.idCard as idCard,
+		user.emil as
+		emil,
+		house.title as title,
+		house.city as city,
+		house.people as
+		people,
+		house.houseAddress as
+		houseAddress,
+		house.houseDescrible as
+		houseDescrible,
+		house.housePrice as
+		housePrice,
+		house.housePicture1
+		as housePicture1,
+		house.housePicture2 as
+		housePicture2,
+		house.housePicture3 as housePicture3,
+		house.mobile as
+		mobile,
+		house.rentstate as rentstate,
+		house.state as state,
+		house.area as
+		area,
+		house.personality as personality,
+		house.internal as
+		internal,
+		house.traffic as traffic,
+		house.surrounding as
+		surrounding,
+		house.supportingFacilities as supportingFacilities
+	
+		from House house
+		left outer join User user on house.userId = user.id
+		
+		where house.id
+		= #{id}
+	</select>
+
+</mapper>
+
+	

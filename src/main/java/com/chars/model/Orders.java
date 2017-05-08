@@ -1,8 +1,16 @@
 package com.chars.model;
 
-public class Orders {
+import java.io.Serializable;
+
+public class Orders implements Serializable{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1484970585586595053L;
 	private int id;
-	private int houseId;
+	//房东id
+	private int houseUserId;
 	private int userId;
 	private String state;
 	private String unitPrice;
@@ -12,10 +20,10 @@ public class Orders {
 	public Orders () {
 		super ();
 	}
-	public Orders(int houseId, int userId, String state, String unitPrice, String startDate, String stopDate,
+	public Orders(int houseUserId, int userId, String state, String unitPrice, String startDate, String stopDate,
 			String ordersDate) {
 		super();
-		this.houseId = houseId;
+		this.houseUserId = houseUserId;
 		this.userId = userId;
 		this.state = state;
 		this.unitPrice = unitPrice;
@@ -30,11 +38,11 @@ public class Orders {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public int getHouseId() {
-		return houseId;
+	public int getHouseUserId() {
+		return houseUserId;
 	}
-	public void setHouseId(int houseId) {
-		this.houseId = houseId;
+	public void setHouseUserId(int houseUserId) {
+		this.houseUserId = houseUserId;
 	}
 	public int getUserId() {
 		return userId;
@@ -74,7 +82,7 @@ public class Orders {
 	}
 	@Override
 	public String toString() {
-		return "Orders [id=" + id + ", houseId=" + houseId + ", userId=" + userId + ", state=" + state + ", unitPrice="
+		return "Orders [id=" + id + ", houseUserId=" + houseUserId + ", userId=" + userId + ", state=" + state + ", unitPrice="
 				+ unitPrice + ", startDate=" + startDate + ", stopDate=" + stopDate + ", ordersDate=" + ordersDate
 				+ "]";
 	}

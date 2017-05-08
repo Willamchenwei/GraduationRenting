@@ -1,6 +1,13 @@
 package com.chars.model;
 
-public class Manager {
+import java.io.Serializable;
+
+public class Manager implements Serializable{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4849285311192282911L;
 	private int id;
 	private String userName;
 	private String password;

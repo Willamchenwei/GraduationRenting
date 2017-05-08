@@ -3,8 +3,8 @@
 <mapper namespace="com.chars.dao.IDiscussDao">
 	<insert id="insertDiscuss" parameterType="com.chars.model.Discuss">
 		insert into Discuss (id,
-		houseId, userId, discussType, describle, housePicture1, housePicture2, housePicture3)
-		values (#{id}, #{houseId}, #{userId}, #{discussType},
+		houseId, userId, userName,discussDate, discussType, describle, housePicture1, housePicture2, housePicture3)
+		values (#{id}, #{houseId}, #{userId}, #{userName}, #{discussDate},  #{discussType},
 		#{describle},
 		#{housePicture1}, #{housePicture2}, #{housePicture3})
 	</insert>
@@ -12,4 +12,8 @@
 		delete from Discuss where id
 		= #{id}
 	</delete>
+		<select id="getHouseDiscuss"  parameterType="int" resultType="com.chars.model.Discuss">
+		select * from Discuss where houseId = #{houseId}
+
+	</select>
 </mapper>

@@ -1,0 +1,232 @@
+body{
+    background-repeat:no-repeat;
+    background-size:100%;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, blockquote, dl, dt, dd, ul, ol, li, a, span, i, b, form, fieldset, legend, button, input, textarea, th, td {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+    outline: none;
+}
+
+body, button, input, select, textarea {
+    font: 12px/1.5 Verdana , Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-variant-ligatures: normal;
+    font-variant-caps: normal;
+    font-variant-numeric: normal;
+    font-weight: normal;
+    font-stretch: normal;
+    font-size: 12px;
+    line-height: 1.5;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    color: #333;
+}
+
+ul, ol {
+    list-style: none outside none;
+}
+
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+
+div{
+    display: block;
+}
+
+.all_con{
+	margin: 60px 100px 0 100px;
+	background-color: #fff;
+	height: 500px;
+}
+
+.personal_con{
+	width: 975px;
+	float: left;
+}
+
+.headimg, .blackimg{
+	position: absolute;
+	left: 635px;
+	top: 70px;
+	float: left;
+    z-index: 99;	
+}
+
+.blackimg{
+    background-image: url(../images/blackhead.jpg);
+    z-index: 999;
+    border-radius: 100px;
+    opacity: 0.8;
+}
+
+.headimg_load{
+    opacity: 0;
+    width: 100px;
+    height: 100px;
+}
+
+.headimg a img{ 
+	border-radius: 100px;
+	width: 100px;
+	height: 100px;
+}
+
+.data_box {
+    font: normal 14px/22px "Microsoft YaHei";
+    color: #2c3e50;
+    padding: 0 20px;
+    position: relative;
+    background: transparent;
+}
+
+.pa20 {
+    padding-top: 20px;
+}
+
+.data_tit {
+    border-bottom: 1px solid #eee;
+    height: 52px;
+    line-height: 52px;
+    color: #30c3a6;
+}
+
+.c_pink, .c_pink:hover {
+    color: #f05b72;
+    text-decoration: none;
+}
+
+.fr {
+    float: right !important;
+}
+
+.data_norms {
+    padding: 18px 0px;
+}
+
+.data_norms li {
+    font-size: 14px;
+    height: 50px;
+    line-height: 50px;
+    vertical-align: middle;
+    padding-left: 10px;
+}
+
+.data_norms li>label {
+    margin-right: 20px;
+    color: #959ea7;
+}
+
+.data_norms li input {
+    vertical-align: middle;
+}
+
+.data_norms_input {
+    width: 278px;
+    height: 38px;
+    line-height: 38px;
+    border: 1px solid #d1d1d1;
+    color: #2c3e50;
+    font-size: 14px;
+    padding-left: 10px;
+    margin-right: 10px;
+}
+
+.data_norms li>.w74 {
+    margin-right: 0;
+    width: 74px;
+    display: inline-block;
+}
+
+input, button {
+    font-size: 14px;
+    font-family: "Microsoft YaHei";
+    outline: none;
+}
+
+.slideBar_box {
+    float: left;
+    width: 170px;
+    height: 100%;
+}
+
+.slideBar_box ul {
+	font: normal 14px/22px "Microsoft YaHei";
+	height: 100%;
+    background: #f8f8f8;
+}
+
+.slideBar_box ul li.cur {
+    background: #f05b72;
+    color: #fff;
+    transition: background-color 0.3s ease 0s;
+}
+
+.slideBar_box ul li {
+    cursor: pointer;
+}
+
+.slideBar_box ul li.cur a {
+    color: #fff;
+}
+
+.slideBar_box ul li a {
+    display: block;
+    padding: 0 0 0 40px;
+    box-sizing: border-box;
+    height: 44px;
+    line-height: 44px;
+}
+
+.slideBar_box ul li a img{
+	height: 40%;
+	position: relative;
+	top: 5px;
+	right: 5px;
+}
+
+.slideBar_box a, .slideBar_box a:hover {
+    color: #2c3e50;
+    text-decoration: none;
+}
+
+.bt_con_p {
+	position: absolute;
+	top: 370px;
+	left: 830px;
+}
+
+.btn_sure_p {
+    background-position: 0 -647px;
+    height: 45px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    border: 0;
+    width: 252px;
+    color: #fff;
+    font-size: 18px;
+    font-family: "微软雅黑";
+    font-weight: bold;
+    -webkit-box-shadow: 0 2px 2px #E16B80;
+    -moz-box-shadow: 0 2px 2px #E16B80;
+    box-shadow: 0 2px 2px #E16B80;
+    cursor: pointer;
+    background-color: #F16B80;
+}
+
+.btn_sure_p:hover{
+	-webkit-box-shadow: 0 2px 2px #D64966;
+    -moz-box-shadow: 0 2px 2px #D64966;
+    box-shadow: 0 2px 2px #D64966;
+    cursor: pointer;
+    background-color: #E64966;
+}
+

@@ -1,6 +1,12 @@
 package com.chars.model;
 
-public class House {
+import java.io.Serializable;
+
+public class House implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -652799542126583409L;
 	private int id;
 	private int userId;
 	private String title;

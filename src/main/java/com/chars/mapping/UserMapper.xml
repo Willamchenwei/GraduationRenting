@@ -13,7 +13,27 @@
 		idCard,
 		phone,
 		emil
-		from User where userName = #{userName} and password = #{password}
+		from User where
+		<if test="password!=null">password=#{password}</if>
+		<if test="userName!=null"> and userName=#{userName}</if>
+		<if test="phone!=null"> and phone=#{phone}</if>
+		<if test="emil!=null"> and emil=#{emil}</if>
+
+	</select>
+	<select id="getUsers" resultType="com.chars.model.User">
+		select
+		id,
+		userName,
+		password,
+		realName,
+		address,
+		picture,
+		sex,
+		idCard,
+		phone,
+		emil
+		from User
+
 	</select>
 	<insert id="insertUser" parameterType="com.chars.model.User">
 		insert into User (id,

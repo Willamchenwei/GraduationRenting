@@ -1,0 +1,132 @@
+.inf_con_r{
+	width: 940px;
+	height: 1300px;
+	background-color: #fff;
+	margin: 50px 200px 0 200px;
+}
+
+.con_head{
+	font-size: 30px;
+	font-family: "Microsoft YaHei";
+	width: 100%;
+	height: 45px;
+	padding: 20px 300px;
+}
+
+.con_head img{
+	height: 100%;
+	padding-right: 20px;
+}
+
+.con_head span{
+	position: relative;
+	bottom: 10px;
+}
+
+.describe{
+	width: 278px;
+	height: 100px;
+	line-height: 38px;
+    border: 1px solid #d1d1d1;
+    color: #2c3e50;
+    font-size: 14px;
+    padding-left: 10px;
+    margin-right: 10px;
+    font: normal 14px/22px "Microsoft YaHei";
+    font-size: 14px;
+    line-height: 22px;
+    padding-left: 10px;
+}
+
+.tali{
+	height: 106px!important; 
+}
+
+.totop{
+	position: relative;
+	bottom: 85px;
+}
+
+.wiset{
+	width: 400px;
+}
+
+.img_con_r, .img_con_r img{
+	width: 300px;
+	height: 200px;
+}
+
+.img_con_r{
+	z-index: 99;
+	padding: 45px 60px;
+}
+
+.float_left{
+	float: left;
+}
+
+.align_right{
+	text-align: right;
+}
+
+.add_black{
+	background-image: url(../images/add.jpg);
+	position: absolute;
+	left: 700px;
+	opacity: 0.8;
+	cursor: pointer;
+}
+
+.wby{
+    opacity: 0;
+	width: 300px;
+	height: 200px;
+}
+
+.top1{
+	position: absolute;
+	top: 232px;
+}
+
+.top2{
+	position: absolute;
+	top: 522px;
+}
+
+.top3{
+	position: absolute;
+	top: 812px;
+}
+
+.bt_con{
+	position: absolute;
+	top: 1260px;
+	left: 510px;
+}
+
+.btn_sure {
+    background-position: 0 -647px;
+    height: 45px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    border: 0;
+    width: 252px;
+    color: #fff;
+    font-size: 18px;
+    font-family: "微软雅黑";
+    font-weight: bold;
+    -webkit-box-shadow: 0 2px 2px #E16B80;
+    -moz-box-shadow: 0 2px 2px #E16B80;
+    box-shadow: 0 2px 2px #E16B80;
+    cursor: pointer;
+    background-color: #F16B80;
+}
+
+.btn_sure:hover{
+	-webkit-box-shadow: 0 2px 2px #D64966;
+    -moz-box-shadow: 0 2px 2px #D64966;
+    box-shadow: 0 2px 2px #D64966;
+    cursor: pointer;
+    background-color: #E64966;
+}

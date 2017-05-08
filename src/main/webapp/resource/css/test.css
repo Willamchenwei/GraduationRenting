@@ -1,0 +1,24 @@
+/* CSS Document */
+.hjy{
+background-image:url(../images/logo.png);
+font-family:"Microsoft YaHei UI"
+}
+
+ul, ol {
+    list-style: none outside none;
+}
+	
+
+.testul{
+	
+}
+.testul li{
+	width:100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.testul img{
+	width: 100%;
+}

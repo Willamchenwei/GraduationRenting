@@ -1,0 +1,330 @@
+ul li{
+	border: none;
+	margin: 0;
+	padding: 0
+} 
+
+.all_con_house{
+    font-family: "Microsoft YaHei";
+    font-size: 14px;
+    color: #2c3e50;
+    width: 1240px;
+    margin: 0 auto;
+}
+
+.house_inf_left{
+    float: left;
+    width: 920px;
+    height: 900px;
+    padding: 26px 10px 0 0;
+}
+
+.house_inf_left h4 {
+    font-size: 24px;
+    font-weight: normal;
+    padding-bottom: 0;
+    line-height: 26px;
+}
+
+.house_inf_left h4 em {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 531px;
+    height: 26px;
+    line-height: 26px;
+    font-style: normal;
+}
+
+.threeimg_con{
+	position: relative;
+	top: 20px;
+	width: 900px;
+	height: 530px;
+}
+
+.threeimg_ul img{
+	width: 100%;
+	height:100%;
+}
+
+.threeimg_ul li {
+    position: absolute;
+    width: 90%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.big_img, .small_img{
+	float: left;
+}
+
+.big_img{
+	width: 90%;
+	height: 100%;
+}
+
+.small_img{
+	width: 10%;
+	height: 100%;
+}
+
+.small_img_ul{
+	position: relative;
+	left: 5px;
+	width: 100%;
+	height: 100%;
+}
+
+.small_img_ul img{
+	width: 90px;
+	height: 70px;
+}
+
+.img_layer{
+	position: absolute;
+	right: 0;
+	background-image: url("../images/black.jpg");
+	opacity: 0.6;
+	width: 90px;
+	height: 70px;
+	z-index: 999;
+	cursor: pointer;
+}
+
+.img_cur{
+	position: absolute;
+	right: 0;
+	background-image: url("../images/pink.png");
+	width: 90px;
+	height: 70px;
+	z-index: 999;
+	cursor: pointer;
+}
+
+.top1{
+	top: 0;
+}
+
+.top2{
+	top: 75px;
+}
+
+.top3{
+	top: 150px;
+}
+
+.small_img_ul li, .small_img_ul{
+	border: none;
+}
+
+.up_down{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 90%;
+	height: 100%;
+	z-index: 999;
+}
+
+.up, .down{
+	width: 100%;
+	height: 50%;
+}
+
+.up{
+	cursor: url(../images/up.cur), pointer;
+}
+
+.down{
+	cursor: url(../images/down.cur), pointer;
+}
+
+.house_inf_con{
+	margin-top: 20px;
+	height: 500px;
+}
+
+.house_info {
+	height: 50px;
+    margin-bottom: 10px;
+    background: rgb(255, 255, 255);
+    padding: 19px 0px 15px 72px;
+}
+
+.house_info li {
+    float: left;
+    line-height: 26px;
+    color: rgb(149, 158, 167);
+    padding-left: 11px;
+    width: 260px;
+}
+
+.border_none {
+    background: none !important;
+}
+
+.house_info li h6 {
+    padding-left: 40px;
+    height: 34px;
+    line-height: 34px;
+    font-size: 24px;
+    font-weight: normal;
+    padding-bottom: 5px;
+    color: rgb(44, 62, 80);
+}
+
+.box_white {
+	height: 90px;
+	padding: 30px 10px;
+    background: #fff;
+}
+
+.box_black {
+	height: 90px;
+	padding: 30px 10px;
+    background: #f9f9f9;
+}
+
+.info_l {
+    float: left;
+    width: 90px;
+    text-align: center;
+}
+
+.info_l span {
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.info_ico1 {
+    width: 46px;
+    height: 60px;
+}
+
+.info_l p {
+    font-size: 22px;
+    color: #a5b0ba;
+    padding-top: 15px;
+}
+
+.info_r {
+    float: left;
+    width: 650px;
+    padding-left: 45px;
+}
+
+.comment{
+	background-color: #fff;
+	margin-top: 20px;
+	padding: 10px 0px;
+}
+
+.head_com{
+	font-family: "Microsoft YaHei";
+	font-size: 20px;
+	padding: 20px 0 20px 20px;
+	width: 100%;
+	color: #f05b72;
+	border-bottom: 1px solid #ecf0f1; 
+}
+
+.floor{
+	margin: 0 150px;
+	padding: 30px 0;
+	border-bottom: 1px solid #ecf0f1;
+}
+
+.pink{
+	color: #f05b72;
+	font-weight: bold;
+	margin-right: 10px;
+}
+
+.floor1, .floor2{
+	margin: 5px 0px;
+}
+
+.house_inf_right{
+	position: fixed;
+	top: 56px;
+    left: 984.5px;
+	width: 310px;
+	height: 570px;
+	background-color: #fff;
+}
+
+.headimg_con{
+	width: 80%;
+	padding: 30px 55px 5px 55px;
+}
+
+.headimg_con img{
+	border-radius: 10px;
+}
+
+.name_tel{
+	padding: 0px 60px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #ecf0f1;
+}
+
+.name, .tel{
+	font-family: "Microsoft YaHei";
+	display: block;
+}
+
+.name{
+	font-size: 18px;
+}
+
+.tel{
+	font-size: 14px;
+	color: #a5b0ba;
+}
+
+.order_btn_container {
+	margin-top: 50px;
+}
+
+.order_btn {
+	margin: 110px 0 0 15px;
+    display: block;
+    width: 280px;
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
+    background: #f05b72;
+    color: #fff;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.order_btn:hover {
+	background-color: #e33555;
+}
+
+.sang_Calender{
+	border: none;
+	font-family: "microsoft YaHei"
+	height: 30px;
+	width: 200px;
+	padding: 7px 0 7px 80px;
+	background-image: url(../images/date.png);
+	background-repeat: no-repeat;
+	background-size: 30px 30px;
+	background-color: #e6e6e6;
+	background-position: 5px 2px;
+}
+
+.dateinput{
+	width:550px!important;
+}
+
+.dateinput{
+	padding: 20px 0 0 40px;
+	float:left;
+	width:50px;
+}

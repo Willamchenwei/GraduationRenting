@@ -3,13 +3,34 @@
 <mapper namespace="com.chars.dao.IOrdersDao">
 	<insert id="insertOrders" parameterType="com.chars.model.Orders">
 		insert into Orders (id,
-		houseId, userId, state, unitPrice, startDate, stopDate, ordersDate)
-		values (#{id}, #{houseId}, #{userId}, #{state},
+		houseUserId, userId, state, unitPrice, startDate, stopDate,
+		ordersDate)
+		values (#{id}, #{houseUserId}, #{userId}, #{state},
 		#{unitPrice},
 		#{startDate}, #{stopDate}, #{ordersDate})
 	</insert>
 	<delete id="deleteOrders" parameterType="int">
-		delete from Orders where id
+		delete from Orders where
+		id
 		= #{id}
 	</delete>
+	<update id="updateOrders" parameterType="com.chars.model.Orders">
+		update Orders
+
+		<if test="state!=null">state = #{state}</if>
+
+		where id = #{id}
+	</update>
+	<select id="getOrdersbyUserId" parameterType="int"
+		resultType="com.chars.model.Orders">
+		select
+		*
+		from Orders where userId = #{userId}
+	</select>
+		<select id="getOrdersbyHouseUserId" parameterType="int"
+		resultType="com.chars.model.Orders">
+		select
+		*
+		from Orders where houseUserId = #{houseUserId}
+	</select>
 </mapper>

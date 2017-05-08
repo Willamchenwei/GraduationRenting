@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans        http://www.springframework.org/schema/beans/spring-beans.xsd       
+	 http://code.alibabatech.com/schema/dubbo       
+	  http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+	  
+
+	<!-- 提供方应用信息，用于计算依赖关系 -->
+	<dubbo:application name="graduationRenting-app" />
+
+	<!-- 使用multicast广播注册中心暴露服务地址 -->
+	<dubbo:registry address="zookeeper://123.56.9.249:2181" />
+
+	<!-- 用dubbo协议在20880端口暴露服务 -->
+	<dubbo:protocol name="dubbo" port="20888" />
+
+	<dubbo:service interface="com.chars.service.IUserService"
+		ref="userService" />
+	<bean id="userService" class="com.chars.serviceImpl.UserServiceImpl" />
+	<dubbo:service interface="com.chars.service.IHouseService"
+		ref = "houseService"/>
+	<bean id = "houseService" class = "com.chars.serviceImpl.HouseServiceImpl" />
+	<dubbo:service interface="com.chars.service.IOrdersService"
+		ref = "ordersService"/>
+	<bean id = "ordersService" class = "com.chars.serviceImpl.OrdersServiceImpl"/>
+	<dubbo:service interface="com.chars.service.ISearchService"
+		ref = "searchService"/>
+	<bean id = "searchService" class = "com.chars.serviceImpl.SearchServiceImpl"/>
+	<dubbo:service interface="com.chars.service.IManagerService" 
+		ref = "managerService"/>
+	<bean id = "managerService" class = "com.chars.serviceImpl.ManagerServiceImpl"/>
+	<dubbo:service interface="com.chars.service.IDiscussService"
+		ref = "discussService"/>
+	<bean id = "discussService" class = "com.chars.serviceImpl.DiscussServiceImpl"/>
+	<dubbo:service interface="com.chars.service.IDetailInformationService"
+		ref = "detailInformationService"/>
+	<bean id = "detailInformationService" class = "com.chars.serviceImpl.DetailInformationServiceImpl"/>
+</beans>

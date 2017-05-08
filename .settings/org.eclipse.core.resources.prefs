@@ -1,2 +1,12 @@
 eclipse.preferences.version=1
+encoding//src/main/webapp/adm.jsp=UTF-8
+encoding//src/main/webapp/goods.jsp=UTF-8
+encoding//src/main/webapp/house_inf_m.jsp=UTF-8
+encoding//src/main/webapp/house_information.jsp=UTF-8
+encoding//src/main/webapp/house_m.jsp=UTF-8
+encoding//src/main/webapp/index.jsp=UTF-8
+encoding//src/main/webapp/order.jsp=UTF-8
+encoding//src/main/webapp/personal_information.jsp=UTF-8
+encoding//src/main/webapp/release.jsp=UTF-8
+encoding//src/main/webapp/user_m.jsp=UTF-8
 encoding//src/test/java/com/chars/test/TestMybatis.java=UTF-8
