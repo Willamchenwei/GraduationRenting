@@ -11,5 +11,7 @@ public interface IOrdersService {
 	public void updataOrders (Orders orders);
 	public List<Orders> getOrdersbyUserId (int userId);
 	public List<Orders> getOrdersbyHouseUserId (int houseUserId);
+	public Orders getOrdersbyId (int id);
+	public List<Orders> getCleanOrders (String newDate);
 
 }

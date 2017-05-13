@@ -290,7 +290,8 @@ ul li{
 }
 
 .order_btn {
-	margin: 110px 0 0 15px;
+	border:none!important;
+	margin: 130px 0 0 15px;
     display: block;
     width: 280px;
     height: 44px;

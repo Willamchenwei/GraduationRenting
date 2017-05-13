@@ -1,4 +1,8 @@
 ﻿<!DOCTYPE html>
+<%@page import="com.chars.model.DetailInformation"%>
+<%@page import="java.util.Iterator"%>
+<%@page import="java.util.List"%>
+<%@page import="com.chars.model.Orders"%>
 <%@page import="com.chars.model.User"%>
 <html lang="en">
 <head>
@@ -12,6 +16,8 @@
 <body>
 <%
 	User user = (User) request.getSession().getAttribute("user");
+	List<Orders> ordersList = (List<Orders>) request.getSession().getAttribute("ordersListByUserId");
+	
 %>
 <div>
 	<div class="head bg_white">
@@ -20,7 +26,7 @@
 			<span class="slogan_logo2">四海有家住</span>
 			<ul class="rightoflogo2">
 				<li>
-					<a href=""  onmouseover="mouseOver2()" onmouseout="mouseOut2()"><%if (user != null) %>用户名
+					<a href=""  onmouseover="mouseOver2()" onmouseout="mouseOut2()"><%if (user != null)  {%> <%=user.getUserName() %> <%} else { %>用户名<%} %>
 						<img id="pull2" src="resource/images/pull_down2.png">
 					</a>
 					<div class="rentlist2 width_set2"  onclick="" ="mouseOver2()" onmouseout="mouseOut2()">
@@ -28,6 +34,8 @@
 							<span>
 								<a href="personal_information.jsp" class="cus2  white">个人中心</a>
 								<a href="order.jsp" class="mas2  white">我的订单</a>
+								<a href="index.jsp"
+									class="mas2  white">返回首页</a>
 							</span>
 						</div>
 					</div>
@@ -59,32 +67,57 @@
 	<div id="con_height" class="all_con2" style="height:700px;">
 	<div class="slideBar_box">
 		<ul>			                                 
-			<li id="s_01" class="cur" onmouseover="mouseOverul1()"><a href="order.html"><img id="order1" src="resource/images/order1w.png"><span></span>订单</a></li>
-			<li id="s_02" class="" onmouseover="mouseOverul2()" onmouseout="mouseOutul2()"><a href="my_message.html"><img id="order2" src="resource/images/order2b.png"><span></span>我的消息</a></li>			          
-			<li id="s_03" class="" onmouseover="mouseOverul3()" onmouseout="mouseOutul3()"><a href="personal_information.html"><img id="order3" src="resource/images/order3b.png"><span></span>个人资料</a></li>						            
+			<li id="s_01" class="cur" onmouseover="mouseOverul1()"><a href="order.jsp"><img id="order1" src="resource/images/order1w.png"><span></span>预定订单</a></li>
+			<li id="s_02" class="" onmouseover="mouseOverul2()" onmouseout="mouseOutul2()"><a href="my_release.jsp"><img id="order2" src="resource/images/order2b.png"><span></span>发布订单</a></li>
+			<li id="s_04" class="" onmouseover="mouseOverul4()" onmouseout="mouseOutul4()"><a href="my_house.jsp"><img id="order4" src="resource/images/order4b.png"><span></span>发布房屋</a></li>			          
+			<li id="s_03" class="" onmouseover="mouseOverul3()" onmouseout="mouseOutul3()"><a href="personal_information.jsp"><img id="order3" src="resource/images/order3b.png"><span></span>个人资料</a></li>						            
 		</ul>
 	</div>
 
 	<div id="rank">
 		<table id="data-ranks">
+			<% if (ordersList != null) {
+					Iterator<Orders> it = ordersList.iterator();
+					while (it.hasNext()) {
+						Orders orders = it.next();
+				%>
+			
 			<tr class="bg_pink">
-				<td class="tdname"><span>订单编号：XXXXXX</span></td>
-				<td class="widthright"><span>下单日期：xxxx年xx月xx日</span></td>
+				<td class="tdname"><span>订单编号：<%=orders.getId() %></span></td>
+				<td class="widthright"><span>下单日期：<%=orders.getOrdersDate() %></span></td>
 			</tr>
 			<tr>
 				<td class="tdinf"colspan="2">
-					<span>XXX元/晚</span><span>xxxx入住 - xxxx离开</span>
+					<span><%=orders.getUnitPrice() %>元</span><span><%=orders.getStartDate() %>入住 - <%=orders.getStopDate() %>离开</span>
+					<input class="state" value=<%=orders.getState() %>  type="text" >
+					
+					<form style="margin:0px" name="s" action="deleteOrders.do" method="post">
+					<input type="text" style="display: none" name="uId"
+					value="<%=orders.getUserId() %>">
+					<input type="text" style="display: none" name="ordersId"
+					value="<%=orders.getId () %>">
 					<input class="delete_order" value="取消订单"  type="submit" >
-					<input class="comment" onclick="com_click1()" value="评论"  type="submit" >
+					</form>
+					<input class="comment2" onclick="com_click1()" value="评论"  type="submit" >
 				</td>
 			</tr>
 			<tr id="com1" style="display:none;">
 				<td class="" colspan="2">
-					<textarea class="comment_text"></textarea>
-					<input class="sub" value="提交" type="submit">
+					
+					<form name="sign" action="insertDiscuss.do" method="post">
+					<textarea class="comment_text" name = "describle" ></textarea>
+						<input type="text" style="display: none" name="userId"
+					value="<%=orders.getUserId() %>">
+					<input type="text" style="display: none" name="userName"
+					value="<%=orders.getUserName() %>">
+					<input type="text" style="display: none" name="houseId"
+					value="<%=orders.getHouseId() %>">
+						<input class="sub" value="提交" type="submit">
+					</form>
 				</td>
 			</tr>
-			<tr class="bg_pink">
+			<%}} %>
+			<!-- <tr class="bg_pink">
 				<td class="tdname"><span>订单编号：XXXXXX</span></td>
 				<td class="widthright"><span>下单日期：xxxx年xx月xx日</span></td>
 			</tr>
@@ -155,7 +188,7 @@
 					<textarea class="comment_text"></textarea>
 					<input class="sub" value="提交" type="submit">
 				</td>
-			</tr>
+			</tr> -->
 		</table>
 </div>
 	</div>

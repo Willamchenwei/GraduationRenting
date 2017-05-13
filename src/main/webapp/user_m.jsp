@@ -53,6 +53,8 @@
 						<td class="tdinf" colspan="2"><span><img
 								src=<%=user.getPicture()%>></span><span><%=user.getUserName()%></span>
 							<form action="removeUser.do" method="post">
+							<input type="text" style="display: none" name="userId"
+					value="<%=user.getId()%>">
 								<input type="submit" class="delete_order" value="删除"> 
 							</form></td>
 					</tr>

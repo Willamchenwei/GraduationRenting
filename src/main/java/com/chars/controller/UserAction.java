@@ -54,12 +54,14 @@ public class UserAction {
 		HttpSession session = request.getSession();
 		if (user != null) {
 			List<House> houseList = houseService.selectHouses();
+			List<House> myHouseList = houseService.selectHouseByUserId(user.getId());
 			List<Orders> ordersListByUserId = ordersService.getOrdersbyUserId(user.getId());
 			List<Orders> ordersListByHouseUserId = ordersService.getOrdersbyHouseUserId(user.getId());
 			session.setAttribute("ordersListByUserId", ordersListByUserId);
 			session.setAttribute("ordersListByHouseUserId", ordersListByHouseUserId);
 			session.setAttribute("user", user);
 			session.setAttribute("houseList", houseList);
+			session.setAttribute("myHouseList", myHouseList);
 			return "index.jsp";
 		} else {
 			session.setAttribute("fail", "error");
@@ -70,7 +72,33 @@ public class UserAction {
 	@RequestMapping("userDetail.do")
 	public String userDetail(User user, Model model, @RequestParam("files") MultipartFile[] files, HttpServletRequest request)
 			throws IllegalStateException, IOException {
-        if(files!=null&&files.length>0){  
+		CommonsMultipartResolver multipartResolver=new CommonsMultipartResolver(
+                request.getSession().getServletContext());
+        //检查form中是否有enctype="multipart/form-data"
+        if(multipartResolver.isMultipart(request))
+        {
+            //将request变成多部分request
+            MultipartHttpServletRequest multiRequest=(MultipartHttpServletRequest)request;
+           //获取multiRequest 中所有的文件名
+            Iterator iter=multiRequest.getFileNames();
+             
+            while(iter.hasNext())
+            {
+                //一次遍历所有文件
+                MultipartFile file=multiRequest.getFile(iter.next().toString());
+                if(file!=null)
+                {
+                    String path="C:/Users/admin/workspace/GraduationRenting/src/main/webapp/resource/images/"+file.getOriginalFilename();
+                    //上传
+                    file.transferTo(new File(path));
+                    user.setPicture ("resource/images/" + file.getOriginalFilename());
+
+                }
+                 
+            }
+           
+        }
+   /*     if(files!=null&&files.length>0){  
             //循环获取file数组中得文件  
             for(int i = 0; i < files.length; i++){  
                 MultipartFile file = files[i];  
@@ -82,7 +110,8 @@ public class UserAction {
                 user.setPicture ("resource/images/" + file.getOriginalFilename());
             }  
         }
-        user.setId(9);
+		System.out.println(user);*/
+
 		userService.updateUser(user);
 		System.out.println(user);
 		
@@ -93,6 +122,14 @@ public class UserAction {
 
 	@RequestMapping("register.do")
 	public String register(User user) {
+		List<User> list = userService.getUsers();
+		Iterator<User> it = list.iterator();
+		while (it.hasNext()) {
+			User u = it.next();
+			if (u.getUserName().equals(user.getUserName()))
+				return "index.jsp";
+		}
+		
 		if (user != null)
 			userService.insertUser(user);
 		return "index.jsp";
@@ -104,6 +141,10 @@ public class UserAction {
 		if (session == null)
 			return "index.jsp";
 		session.removeAttribute("user");
+		session.removeAttribute("ordersListByUserId");
+		session.removeAttribute("ordersListByHouseUserId");
+		session.removeAttribute("houseList");
+		session.removeAttribute("myHouseList");
 		return "index.jsp";
 	}
 

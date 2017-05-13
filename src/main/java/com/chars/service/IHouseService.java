@@ -12,5 +12,7 @@ public interface IHouseService {
 	public void deleteHouse (int id);
 	public void updateHouseState (House house);
 	public House selectHouseById (int id);
+	public List<House> selectSearchHouse ();
+
 
 }

@@ -40,4 +40,14 @@ public class OrdersServiceImpl implements IOrdersService{
 		return ordersDao.getOrdersbyHouseUserId(houseUserId);
 	}
 
+	public Orders getOrdersbyId(int id) {
+		// TODO Auto-generated method stub
+		return ordersDao.getOrdersbyId(id);
+	}
+
+	public List<Orders> getCleanOrders(String newDate) {
+		// TODO Auto-generated method stub
+		return ordersDao.getCleanOrders(newDate);
+	}
+
 }

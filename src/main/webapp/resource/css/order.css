@@ -46,7 +46,7 @@ tr td{
 }
 
 .tdinf span{
-	margin-right: 85px;
+	margin-right: 10px;
 }
 
 .data-input{
@@ -68,11 +68,23 @@ tr td{
 	background-color: #f05b72;
 	opacity: 1;
 	padding: 5px 10px 5px 10px;
-	margin-left: 60px;
+	margin-left: 10px;
 	margin-right: 10px!important;
 }
 
-.comment{
+.state{
+	border:none;
+	cursor: pointer;
+	color: #fff;
+	background-color: #f05b72;
+	opacity: 1;
+	padding: 5px 10px 5px 10px;
+	margin-left: 10px;
+	margin-right: 10px!important;
+	width:50px;
+}
+
+.comment2{
 	border:none;
 	cursor: pointer;
 	color: #fff;
@@ -91,12 +103,13 @@ tr td{
 	padding: 5px 10px 5px 10px;
 }
 
-.delete_order:hover, .comment:hover, .sub:hover{
+.delete_order:hover, .comment2:hover, .sub:hover{
 	background-color: #D64966;
 }
 
 .comment_text{
 	width:100%;
 	height:100px;
+	
 }
 

@@ -32,15 +32,16 @@ import org.wltea.analyzer.lucene.IKAnalyzer;
 import com.chars.dao.IHouseDao;
 import com.chars.model.House;
 import com.chars.service.ISearchService;
+
 @Service
-public class SearchServiceImpl implements ISearchService{
+public class SearchServiceImpl implements ISearchService {
 	private Directory directory;
 	@Resource
 	private IHouseDao houseDao;
 
 	public void index() {
 		IndexWriter writer;
-		
+
 		try {
 			directory = FSDirectory.open(new File("D://index"));
 			Analyzer analyzer = new IKAnalyzer();
@@ -48,17 +49,19 @@ public class SearchServiceImpl implements ISearchService{
 			conf.setOpenMode(OpenMode.CREATE_OR_APPEND);
 			conf.setMaxBufferedDocs(100);
 			writer = new IndexWriter(directory, conf);
-			
+
 			List<House> houseList = houseDao.selectHouse();
 			Iterator<House> it = houseList.iterator();
 			while (it.hasNext()) {
 				House house = it.next();
+
 				Document document = new Document();
 				document.add(new StringField("id", house.getId() + "", Field.Store.YES));
-				document.add(new StringField("city", house.getCity (), Field.Store.YES));
+				document.add(new StringField("city", house.getCity(), Field.Store.YES));
 				document.add(new StringField("houseAddress", house.getHouseAddress(), Field.Store.YES));
-				Term term = new Term("id",house.getId() + "");
+				Term term = new Term("id", house.getId() + "");
 				writer.updateDocument(term, document);
+
 			}
 			writer.close();
 		} catch (IOException e) {
@@ -66,21 +69,23 @@ public class SearchServiceImpl implements ISearchService{
 		}
 
 	}
-    public IndexSearcher getSearcher() throws IOException {  
-        IndexReader reader = DirectoryReader.open(directory);  
-        IndexSearcher searcher = new IndexSearcher(reader);  
-        return searcher;  
-    } 
-    public List<Integer> searchByTerm(String field, String name, int num) throws IOException {  
-    	List<Integer> list = new ArrayList<Integer>();
-        IndexSearcher searcher = getSearcher();  
-        Query query = new WildcardQuery(new Term(field, name));  
-        TopDocs tds = searcher.search(query, num);  
-        System.out.println("count:" + tds.totalHits);  
-        for (ScoreDoc sd : tds.scoreDocs) {  
-            Document doc = searcher.doc(sd.doc);  
-            list.add( Integer.parseInt(doc.get("id")));    
-        }  
-        return list;
-    }  
+
+	public IndexSearcher getSearcher() throws IOException {
+		IndexReader reader = DirectoryReader.open(directory);
+		IndexSearcher searcher = new IndexSearcher(reader);
+		return searcher;
+	}
+
+	public List<Integer> searchByTerm(String field, String name, int num) throws IOException {
+		List<Integer> list = new ArrayList<Integer>();
+		IndexSearcher searcher = getSearcher();
+		Query query = new WildcardQuery(new Term(field, name));
+		TopDocs tds = searcher.search(query, num);
+		System.out.println("count:" + tds.totalHits);
+		for (ScoreDoc sd : tds.scoreDocs) {
+			Document doc = searcher.doc(sd.doc);
+			list.add(Integer.parseInt(doc.get("id")));
+		}
+		return list;
+	}
 }

@@ -30,6 +30,7 @@ function mouseOutul2()
 	document.getElementById("s_02").className="";
 	document.getElementById("order2").src="resource/images/order2b.png";
 }
+
 function mouseOverul3()
 {
 	document.getElementById("s_03").className="cur";
@@ -40,6 +41,18 @@ function mouseOutul3()
 {
 	document.getElementById("s_03").className="";
 	document.getElementById("order3").src="resource/images/order3b.png";
+}
+
+function mouseOverul4()
+{
+	document.getElementById("s_04").className="cur";
+	document.getElementById("order4").src="resource/images/order4w.png";
+}
+
+function mouseOutul4()
+{
+	document.getElementById("s_04").className="";
+	document.getElementById("order4").src="resource/images/order4b.png";
 }
 
 var click1 = true;

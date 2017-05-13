@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.chars.dao.IOrdersDao">
 	<insert id="insertOrders" parameterType="com.chars.model.Orders">
 		insert into Orders (id,
-		houseUserId, userId, state, unitPrice, startDate, stopDate,
+		houseId,
+		houseUserId, userId, userName, state, unitPrice, startDate, stopDate,
 		ordersDate)
-		values (#{id}, #{houseUserId}, #{userId}, #{state},
+		values (#{id}, #{houseId}, #{houseUserId}, #{userId}, #{userName},
+		#{state},
 		#{unitPrice},
 		#{startDate}, #{stopDate}, #{ordersDate})
 	</insert>
@@ -14,10 +16,11 @@
 		id
 		= #{id}
 	</delete>
-	<update id="updateOrders" parameterType="com.chars.model.Orders">
+	<update id="updataOrders" parameterType="com.chars.model.Orders">
 		update Orders
-
-		<if test="state!=null">state = #{state}</if>
+		set
+		state =
+		#{state}
 
 		where id = #{id}
 	</update>
@@ -27,10 +30,21 @@
 		*
 		from Orders where userId = #{userId}
 	</select>
-		<select id="getOrdersbyHouseUserId" parameterType="int"
+	<select id="getOrdersbyHouseUserId" parameterType="int"
 		resultType="com.chars.model.Orders">
 		select
 		*
 		from Orders where houseUserId = #{houseUserId}
+	</select>
+	<select id="getOrdersbyId" parameterType="int"
+		resultType="com.chars.model.Orders">
+		select
+		*
+		from Orders where id = #{id}
+	</select>
+	<select id="getCleanOrders" parameterType="String" resultType="com.chars.model.Orders">
+		select
+		*
+		from Orders where stopDate &lt;  #{newDate} 
 	</select>
 </mapper>

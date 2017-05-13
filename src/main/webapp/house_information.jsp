@@ -22,11 +22,18 @@
 	User user = (User) request.getSession().getAttribute("user");
 	DetailInformation detailInformation = (DetailInformation) request.getSession().getAttribute("houseDetailInformation");
 	List<Discuss> discussList = (List<Discuss>) request.getSession().getAttribute("discussList"); 
-%>
+	String success = (String) request.getSession().getAttribute("success");
+	String fail =(String) request.getSession().getAttribute("fail");
+	if (fail != null)
+		request.getSession().removeAttribute("fail");
+	if (success != null)
+		request.getSession().removeAttribute("success");
+
+%> 
 <div>
 	<div class="head bg_white">
 		<div class="head_logo2">
-			<a href="index.html" class="logo2"></a>
+			<a href="index.jsp" class="logo2"></a>
 			<span class="slogan_logo2">四海有家住</span>
 			<ul class="rightoflogo2">
 				<li>
@@ -36,15 +43,17 @@
 					<div class="rentlist2 width_set2"  onclick="" ="mouseOver2()" onmouseout="mouseOut2()">
 						<div class="rentlist_in2">
 							<span>
-								<a href="" class="cus2  white">个人中心</a>
-								<a href="" class="mas2  white">我的订单</a>
+								<a href="personal_information.jsp" class="cus2  white">个人中心</a>
+								<a href="order.jsp" class="mas2  white">我的订单</a>
+								<a href="index.jsp"
+									class="mas2  white">返回首页</a>
 							</span>
 						</div>
 					</div>
 				</li>
 				<li>·</li>
 				<li>
-					<a href="">我的订单</a>
+					<a href="order.jsp">我的订单</a>
 				</li>
 				<li>·</li>
 				<li>
@@ -61,7 +70,7 @@
 					</div>
 				</li>
 				<li>
-					<a href="" class="freeroom2 white">免费发布房间</a>
+					<a href="release.jsp" class="freeroom2 white">免费发布房间</a>
 				</li>
 			</ul>
 		</div>
@@ -239,13 +248,36 @@
 				<span class="name"><%=detailInformation.getUserName() %></span>
 				<span class="tel">tel:<%=detailInformation.getMobile() %></span>
 			</div>
-			<%} %>
+			<%if (user != null) { %>
+			<form name="sign" action="insertOrders.do" method="post"
+				enctype="multipart/form-data">
 			<div class="dateinput">
-					入住日期：<input type="text"><br><br>离开日期：<input type="text">
+					入住日期：<input type="text" name = "startDate"><br><br>离开日期：<input type="text" name = "stopDate">
 			</div>
+			<input type="text" style="display: none" name="housePrice"
+					value="<%=detailInformation.getHousePrice() %>">
+					<input type="text" style="display: none" name="houseUserId"
+					value="<%=detailInformation.getUserId() %>">
+					<input type="text" style="display: none" name="userId"
+					value="<%=user.getId() %>">
+					<input type="text" style="display: none" name="userName"
+					value="<%=user.getUserName() %>">
+					<input type="text" style="display: none" name="houseId"
+					value="<%=detailInformation.getHouseId() %>">
 			<div class="order_btn_container"> 
-                <a class="order_btn" href="">立即预订</a>
+                <input class="order_btn" value = "提交订单" type = "submit">
             </div>
+            </form>
+            <%} }%>
+            <%if (fail != null) { %>
+            	<center class="logo_wrong" style="display:;">
+								<span>预定失败！</span>
+							</center>
+			<%} if (success != null) { %>
+			<center class="logo_wrong" style="display:;">
+								<span>预定成功！</span>
+							</center>
+							<%} %>
             <script src="resource/js/datetime.js" type="text/javascript"></script>
 		</div>
 	</div>

@@ -1,5 +1,7 @@
 package com.chars.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -19,10 +21,13 @@ public class DiscussAction {
 	private IDiscussService discussService;
 	@RequestMapping ("insertDiscuss.do")
 	public String insertDiscuss (Discuss discuss, HttpServletRequest request) {
+		SimpleDateFormat format = new SimpleDateFormat("yyyy年MM月dd日 ");
+		Date date = new Date();
+		discuss.setDiscussDate(format.format(date));
 		discussService.insertDiscuss(discuss);
 		HttpSession session = request.getSession();
 		List<Discuss> discussList = discussService.getHouseDiscuss(discuss.getHouseId());
 		session.setAttribute("discussList", discussList);
-		return "house_information.jsp";
+		return "order.jsp";
 	}
 }

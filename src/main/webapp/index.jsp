@@ -66,7 +66,7 @@
 						<ul class="rightoflogo" style="display:;">
 							<li><a href="" onmouseover="mouseOver()"
 								onmouseout="mouseOut()"><%=user.getUserName()%> <img
-									id="pull" src=<%=user.getPicture()%>> </a> <%
+									id="pull" <%if (user.getPicture() != null) { %>src=<%=user.getPicture()%> <%} else { %>src="resource/images/headimg.jpg" <%} %>> </a> <%
  	}
  %>
 
@@ -131,7 +131,7 @@
 						<span class="icon_place" id="suggest_icon"></span>
 						<form name="search" action="searchHouse.do" method="post">
 						 <input
-							class="ipt_search_l r_border" type="text" id="addresss"
+							class="ipt_search_l r_border" type="text" id="address"
 							name="address" autocomplete="off" value="">
 					</div>
 					<input class="btn_pink_search" type="submit" value="搜索">
@@ -142,7 +142,9 @@
 			</div>
 		</div>
 		<div class="index_T"></div>
-		<%if (houseList != null) {%>
+		<%if (houseList != null) {
+			if (houseList.size() >= 6) {
+		%>
 		<div class="goods_con">
 			<div class="goods_inf">
 				<div class="img_con">
@@ -150,7 +152,7 @@
 				</div>
 				<div class="rooms_intro">
 					<img class="img_user_fd" lazy_src="finish"
-						src="resource/images/headimg.jpg"> <span class="room_name"><%=houseList.get(1).getTitle() %>
+						src=<%=houseList.get(1).getPicture() %>> <span class="room_name"><%=houseList.get(1).getTitle() %>
 						- <%=houseList.get(1).getCity() %></span> <span class="index_price"><em class="bigFont">¥</em><%=houseList.get(1).getHousePrice() %></span>
 				</div>
 			<form name="sign" action="loadDetailHouseInformation.do" method="post"
@@ -169,7 +171,7 @@
 				</div>
 				<div class="rooms_intro">
 					<img class="img_user_fd" lazy_src="finish"
-						src="resource/images/headimg.jpg"> <span class="room_name"><%=houseList.get(0).getTitle() %>
+						src=<%=houseList.get(0).getPicture() %>> <span class="room_name"><%=houseList.get(0).getTitle() %>
 						- <%=houseList.get(0).getCity() %></span> <span class="index_price"><em class="bigFont">¥</em><%=houseList.get(0).getHousePrice() %></span>
 				</div>
 				<form name="sign" action="loadDetailHouseInformation.do" method="post"
@@ -186,7 +188,7 @@
 				</div>
 				<div class="rooms_intro">
 					<img class="img_user_fd" lazy_src="finish"
-						src="resource/images/headimg.jpg"> <span class="room_name"><%=houseList.get(2).getTitle() %>
+						src=<%=houseList.get(2).getPicture() %>> <span class="room_name"><%=houseList.get(2).getTitle() %>
 						- <%=houseList.get(2).getCity() %></span> <span class="index_price"><em class="bigFont">¥</em><%=houseList.get(2).getHousePrice() %></span>
 				</div>
 				<form name="sign" action="loadDetailHouseInformation.do" method="post"
@@ -203,7 +205,7 @@
 				</div>
 				<div class="rooms_intro">
 					<img class="img_user_fd" lazy_src="finish"
-						src="resource/images/headimg.jpg"> <span class="room_name"><%=houseList.get(3).getTitle() %>
+						src=<%=houseList.get(3).getPicture() %>> <span class="room_name"><%=houseList.get(3).getTitle() %>
 						- <%=houseList.get(3).getCity() %></span> <span class="index_price"><em class="bigFont">¥</em><%=houseList.get(3).getHousePrice() %></span>
 				</div>
 				<form name="sign" action="loadDetailHouseInformation.do" method="post"
@@ -220,7 +222,7 @@
 				</div>
 				<div class="rooms_intro">
 					<img class="img_user_fd" lazy_src="finish"
-						src="resource/images/headimg.jpg"> <span class="room_name"><%=houseList.get(4).getTitle() %>
+						src=<%=houseList.get(4).getPicture() %>> <span class="room_name"><%=houseList.get(4).getTitle() %>
 						- <%=houseList.get(4).getCity() %></span> <span class="index_price"><em class="bigFont">¥</em><%=houseList.get(4).getHousePrice() %></span>
 				</div>
 				<form name="sign" action="loadDetailHouseInformation.do" method="post"
@@ -237,7 +239,7 @@
 				</div>
 				<div class="rooms_intro">
 					<img class="img_user_fd" lazy_src="finish"
-						src="resource/images/headimg.jpg"> <span class="room_name"><%=houseList.get(5).getTitle() %>
+						src=<%=houseList.get(5).getPicture() %>> <span class="room_name"><%=houseList.get(5).getTitle() %>
 						- <%=houseList.get(5).getCity() %></span> <span class="index_price"><em class="bigFont">¥</em><%=houseList.get(5).getHousePrice() %></span>
 				</div>
 				<form name="sign" action="loadDetailHouseInformation.do" method="post"
@@ -249,7 +251,7 @@
 				</form>
 			</div>
 		</div>
-		<%} %>
+		<%} }%>
 		<div class="index_T2"></div>
 	</div>
 

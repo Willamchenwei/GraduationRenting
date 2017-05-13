@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import com.chars.dao.IDetailInformationDao;
@@ -13,6 +14,7 @@ import com.chars.service.IDetailInformationService;
 public class DetailInformationServiceImpl implements IDetailInformationService{
 	@Resource
 	private IDetailInformationDao detailInformationDao;
+	@Cacheable("getDetailInformations")
 	public List<DetailInformation> getDetailInformations() {
 		List<DetailInformation> detailList = detailInformationDao.getDetailInformations();
 		return detailList;

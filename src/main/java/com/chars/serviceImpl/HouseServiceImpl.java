@@ -45,4 +45,9 @@ public class HouseServiceImpl implements IHouseService{
 		return houseDao.selectHouseById(id);
 	}
 
+	public List<House> selectSearchHouse() {
+		// TODO Auto-generated method stub
+		return houseDao.selectSearchHouse();
+	}
+
 }
